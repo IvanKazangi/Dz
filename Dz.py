@@ -27,7 +27,7 @@ class Student:
 
     def to_work(self):
         print("Time to work...")
-        self.money += 300
+        self.money += 500
         self.progress += 0.1
         self.gladness -= 3
 
