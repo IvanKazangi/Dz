@@ -84,11 +84,12 @@ class Human:
         self.satiety -= 5
 
     def to_knowledge(self):
-        if self.to_knowledge() < 10:
-            self.to_knowledge += 30
+        if self.knowledge() < 10:
+            self.knowledge += 30
 
-    def studies(self):
-        pass
+    def to_studies(self):
+        if self.knowledge >= studies_list:
+            self.chill()
 
     def shopping(self):
         pass
