@@ -24,8 +24,10 @@
 # car.add_passengers(anna)
 # car.print_passengers()
 import random
+
+
 class Human:
-    def __init__(self, name='Human', job=None, home=None, car=None):
+    def __init__(self, name='Human', job=None, home=None, car=None, studies=None):
         self.name = name
         self.job = job
         self.home = home
@@ -33,6 +35,16 @@ class Human:
         self.money = 100
         self.gladness = 50
         self.satiety = 50
+        self.studies = studies
+
+    def get_learn(self):
+        if self.studies():
+            pass
+        else:
+            self.knowledge()
+            return
+        self.gladness = Studies(studies_list)
+
     def get_job(self):
         if self.car.drive():
             pass
@@ -40,8 +52,10 @@ class Human:
             self.to_repair()
             return
         self.job = Job(job_list)
+
     def get_car(self):
         self.car = Auto(brands_of_car)
+
     def get_home(self):
         self.home = House()
 
@@ -54,6 +68,7 @@ class Human:
                 return
             self.satiety += 5
             self.home.food -= 5
+
     def work(self):
         if self.car.drive():
             pass
@@ -67,21 +82,34 @@ class Human:
         self.money += self.job.salary
         self.gladness -= self.job.gladness
         self.satiety -= 5
+
+    def knowledge(self):
+        pass
+
+    def studies(self):
+        pass
+
     def shopping(self):
         pass
+
     def chill(self):
         pass
+
     def clean_home(self):
         pass
+
     def to_repair(self):
         pass
 
     def days_indexes(self):
         pass
+
     def is_alive(self):
         pass
+
     def live(self, day):
         pass
+
 
 class Auto:
     def __init__(self, brand_list):
@@ -100,11 +128,11 @@ class Auto:
             return False
 
 
-
 class House:
     def __init__(self):
         self.food = 0
         self.mess = 0
+
 
 class Job:
     def __init__(self, job_list):
@@ -112,6 +140,17 @@ class Job:
         self.salary = job_list[self.job]['salary']
         self.gladness = job_list[self.job['job_gladness']]
 
+
+class Studies:
+    def __init__(self, studies_list):
+        self.studies = random.choice(list(studies_list))
+        self.knowledge = studies_list[self.studies]['knowledge']
+        self.gladness = studies_list[self.studies]['studies_gladness']
+
+
+studies_list = {'school': {'knowledge': 50, 'studies_gladness': 4},
+                'college': {'knowledge': 70, 'studies_gladness': 7},
+                'university': {'knowledge': 90, 'studies_gladness': 5}}
 
 job_list = {'C++': {'salary': 90, 'job_gladness': 3},
             'Python': {'salary': 50, 'job_gladness': 10},
@@ -122,4 +161,3 @@ brands_of_car = {"BMW": {'fuel': 100, 'strength': 100, 'consumption': 6},
                  "Lada": {'fuel': 50, 'strength': 30, 'consumption': 9},
                  "Ford": {'fuel': 80, 'strength': 150, 'consumption': 8},
                  "Audi": {'fuel': 70, 'strength': 120, 'consumption': 7}}
-
