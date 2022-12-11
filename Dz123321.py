@@ -83,8 +83,9 @@ class Human:
         self.gladness -= self.job.gladness
         self.satiety -= 5
 
-    def knowledge(self):
-        pass
+    def to_knowledge(self):
+        if self.to_knowledge() < 10:
+            self.to_knowledge += 30
 
     def studies(self):
         pass
